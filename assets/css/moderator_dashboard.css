@@ -1,0 +1,52 @@
+* {
+  font-family: 'Work Sans', sans-serif;
+}
+
+.heading {
+  color: #12232E;
+}
+
+.container .addcontest-btn {
+  border-width: 1px !important;
+  border-color: #007CC7;
+  color: #007CC7;
+}
+
+.container .addcontest-btn:hover {
+  color: #EEFBFB;
+  background-color: #007CC7;
+}
+
+.container .createcontest-btn {
+  border-width: 1px !important;
+  border-color: #007CC7;
+  color: #007CC7;
+}
+
+.container .createcontest-btn:hover {
+  color: #EEFBFB;
+  background-color: #007CC7;
+}
+
+.container .accordion .card {
+  color: #007CC7;
+  border: 1px solid #12232E;
+}
+
+.container .accordion .card .card-header {
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.container .accordion .card .card-header .btn {
+  border-width: 1px !important;
+  border-color: #007CC7;
+  color: #007CC7;
+  background-color: transparent;
+}
+
+.container .accordion .card .card-header .btn:hover {
+  color: #EEFBFB;
+  background-color: #007CC7;
+}
+/*# sourceMappingURL=moderator_dashboard.css.map */

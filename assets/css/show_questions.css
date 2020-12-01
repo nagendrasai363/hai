@@ -1,0 +1,49 @@
+.btn {
+  border-width: 1px !important;
+}
+
+.nav-pills .nav-link {
+  color: #007CC7 !important;
+  background: transparent !important;
+  border: 1px solid #007CC7 !important;
+}
+
+.nav-pills .nav-link:hover {
+  background-color: #007CC7 !important;
+  color: #EEFBFB !important;
+}
+
+.nav-pills .active {
+  background-color: #007CC7 !important;
+  color: #EEFBFB !important;
+}
+
+.tab-content .alert {
+  position: absolute;
+  top: 120px;
+  right: 50px;
+}
+
+.tab-content .card .card-body .btn {
+  color: #007CC7;
+  border-color: #007CC7;
+  background-color: transparent;
+  border-width: 1px !important;
+}
+
+.tab-content .card .card-body .btn:hover {
+  color: #EEFBFB;
+  background-color: #007CC7;
+}
+
+@media screen and (max-width: 520px) {
+  .tab-content .alert {
+    position: absolute;
+    top: 80px;
+    right: 50px;
+  }
+  .tab-content .card-body .input-group {
+    width: 110%;
+  }
+}
+/*# sourceMappingURL=show_questions.css.map */

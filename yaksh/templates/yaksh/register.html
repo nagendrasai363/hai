@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Register {% endblock %}
+{% block pagetitle %} Registration {% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock %}
+{% block nav %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <a class="navbar-brand" href="{% url 'yaksh:index' %}">
+        <img src="{% static 'yaksh/images/yaksh_banner.png' %}" alt="YAKSH">
+    </a>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row justify-content-center form-group d-flex px-1">
+        <div class="col-md-5 col-12">
+            <form action="" method="post" class="form m-1 p-3">
+                <fieldset class="p-md-4 p-3">
+                    {% csrf_token %}
+                    <h5 class="sub-title"> Please fill in the following details:</h5>
+                    <center>
+                        {% if form.errors %}
+                            {% for field in form %}
+                                {% for error in field.errors %}
+                                    <div class="alert alert-dismissible alert-danger">
+                                        <button type="button" class="close" data-dismiss="alert">
+                                            <i class="fa fa-close"></i>
+                                        </button>
+                                        <strong>{{ error|escape }}</strong>
+                                    </div>
+                                {% endfor %}
+                            {% endfor %}
+                            {% for error in form.non_field_errors %}
+                                <div class="alert alert-dismissible alert-danger">
+                                    <button type="button" class="close" data-dismiss="alert">
+                                        <i class="fa fa-close"></i>
+                                    </button>
+                                    <strong>{{ error|escape }}</strong>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                        {% for field in form %}
+                            <td>{{ field }} <h6 class="help-text">{{ field.help_text }}</h6></td>
+                            <br>
+                        {% endfor %}
+                        <br>
+                        <br>
+                    </center>
+                    <center>
+                        <button class="btn btn-outline-success btn-lg m-1" type="submit">
+                            Register
+                        </button>
+                        <a href="{% url 'yaksh:index' %}" class="btn btn-outline-primary btn-lg m-1">
+                            Cancel
+                        </a>
+                    </center>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

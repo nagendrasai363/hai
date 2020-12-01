@@ -1,0 +1,44 @@
+@import 'function.scss';
+.base-content{
+    padding-top: 100px!important;
+}
+
+.card{
+    border: none;
+    color: $font-color;
+    .card-header{
+        background: transparent;
+        border: none;
+        h3{
+            color: $primary-color!important;
+            text-transform: uppercase;
+            text-align: center;
+        }
+    }
+    .card-body{
+        background-color: $primary-color;
+        border-radius: 10%;
+        // padding: 30px;
+        .form-group{
+            border-style: dashed;
+            border-color: $font-color;
+            border-radius: 10%;
+            // padding: 40px;
+            .login-btn{
+                border-width: 1px!important;
+            }
+            .signup-btn{
+                border-width: 1px!important;
+            }
+            .socials{
+                i{
+                    color: $font-color;
+                    font-size: 32px;
+                }
+                i:hover{
+                    color: $secondary-color!important;       
+                }
+        }
+        }
+    }
+}

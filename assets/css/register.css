@@ -1,0 +1,26 @@
+.form {
+  background-color: #12232E;
+  color: #EEFBFB;
+  border-radius: 50px;
+}
+
+.form fieldset {
+  border-width: 2px;
+  border-style: dashed;
+  border-color: #EEFBFB;
+  border-radius: 50px;
+}
+
+.form fieldset .sub-title {
+  text-align: center;
+}
+
+.form fieldset .help-text {
+  margin: 0;
+  bottom: 0;
+}
+
+.form fieldset .btn {
+  border-width: 1px !important;
+}
+/*# sourceMappingURL=register.css.map */

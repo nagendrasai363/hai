@@ -1,0 +1,49 @@
+@import 'function.scss';
+*{
+    font-family: 'Work Sans', sans-serif;
+    // border: 1px solid red;
+}
+.heading{
+    color: $primary-color;
+}
+.container{
+    .addcontest-btn{
+        border-width:1px!important;
+        border-color: $secondary-color;
+        color: $secondary-color;
+    }
+    .addcontest-btn:hover{
+        color: $font-color;
+        background-color: $secondary-color;
+    }
+    .createcontest-btn{
+        border-width:1px!important;
+        border-color: $secondary-color;
+        color: $secondary-color;
+    }
+    .createcontest-btn:hover{
+        color: $font-color;
+        background-color: $secondary-color;
+
+    }
+    .accordion{
+        .card{
+            color: $secondary-color;
+            border:1px solid $primary-color;
+            .card-header{
+                cursor: pointer;
+                background-color: transparent;
+                .btn{
+                    border-width:1px!important;
+                    border-color: $secondary-color;
+                    color: $secondary-color;
+                    background-color: transparent;
+                }
+                .btn:hover{
+                    color: $font-color;
+                    background-color: $secondary-color;
+                }
+            }
+        }
+    }
+}

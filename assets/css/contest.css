@@ -1,0 +1,57 @@
+center {
+  text-transform: uppercase;
+}
+
+.nav-pills .nav-item .nav-link {
+  background-color: transparent;
+  border: 1px solid #007CC7;
+  color: #007CC7;
+}
+
+.nav-pills .nav-item .active {
+  background-color: #007CC7;
+  color: #EEFBFB;
+}
+
+.nav-pills .nav-item:hover .nav-link {
+  background-color: #007CC7;
+  color: #EEFBFB;
+}
+
+.nav-pills .listbtn {
+  background: transparent;
+  color: #007CC7;
+  border: 1px solid #007CC7;
+  cursor: pointer;
+}
+
+.nav-pills .listbtn:hover {
+  background: #007CC7 !important;
+  color: #EEFBFB !important;
+}
+
+.nav-pills .gridbtn {
+  background: transparent;
+  color: #007CC7;
+  border: 1px solid #007CC7;
+  cursor: pointer;
+}
+
+.nav-pills .gridbtn:hover {
+  background: #007CC7 !important;
+  color: #EEFBFB !important;
+}
+
+.nav-pills .active {
+  background: #007CC7 !important;
+  color: #EEFBFB !important;
+}
+
+.btn {
+  border-width: 1px !important;
+}
+
+.btn:hover {
+  border-width: 1px !important;
+}
+/*# sourceMappingURL=contest.css.map */

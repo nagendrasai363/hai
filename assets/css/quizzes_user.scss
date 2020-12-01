@@ -1,0 +1,19 @@
+@import 'function.scss';
+#accordian{
+    .card{
+        .card-header{
+            background: transparent!important;
+            color: $primary-color!important;
+            border: 1px solid $primary-color;
+        }
+        .card-body{
+            background: transparent!important;
+            color: $primary-color!important;
+            border: 1px solid $primary-color;
+            border-top: transparent!important;
+        }
+    }
+} 
+.btn{
+    @include button-border;
+}

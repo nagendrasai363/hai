@@ -1,0 +1,53 @@
+@import 'function.scss';
+center{
+    text-transform: uppercase;
+}
+.nav-pills{ 
+    .nav-item{
+        .nav-link{
+            background-color: transparent;
+            border: 1px solid $secondary-color;
+            color: $secondary-color;
+        }
+        .active{
+            background-color: $secondary-color;
+            color: $font-color;
+        }
+    }
+    .nav-item:hover{
+        .nav-link{
+            background-color: $secondary-color;
+            color: $font-color;
+        }
+    }
+    .listbtn{
+        background: transparent;
+        color: $secondary-color;
+        border: 1px solid $secondary-color;
+        cursor: pointer;
+    }
+    .listbtn:hover{
+        background: $secondary-color!important;
+        color: $font-color!important;
+    }
+    .gridbtn{
+        background: transparent;
+        color: $secondary-color;
+        border: 1px solid $secondary-color;
+        cursor: pointer;
+    }
+    .gridbtn:hover{
+        background: $secondary-color!important;
+        color: $font-color!important;
+    }
+    .active{
+        background: $secondary-color!important;
+        color: $font-color!important;
+    }
+}
+.btn{
+    border-width: 1px!important;
+}
+.btn:hover{
+    border-width: 1px!important;
+}

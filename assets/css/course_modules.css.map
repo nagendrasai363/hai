@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AACA,AACI,KADC,CACD,YAAY,CAAA;EACR,UAAU,EAAE,MAAM,CAAA,UAAU;CAI/B;;AANL,AAGQ,KAHH,CACD,YAAY,CAER,IAAI,CAAA;ECAR,YAAY,EAAE,GAAG,CAAA,UAAU;CDEtB",
+    "sources": [
+        "course_modules.scss",
+        "function.scss"
+    ],
+    "names": [],
+    "file": "course_modules.css"
+}

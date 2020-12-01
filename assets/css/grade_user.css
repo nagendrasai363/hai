@@ -1,0 +1,53 @@
+.card .card-header {
+  background: transparent;
+  border: 1px solid #12232E;
+}
+
+.card .card-header .btn {
+  border-width: 1px !important;
+}
+
+.card .card-header .btn {
+  color: #007CC7;
+  border-color: #007CC7;
+  background-color: transparent;
+  border-width: 1px !important;
+}
+
+.card .card-header .btn:hover {
+  color: #EEFBFB;
+  background-color: #007CC7;
+}
+
+.card .card-header .course-name {
+  color: #12232E;
+}
+
+.card .card-body {
+  border: 1px solid #12232E;
+  border-top: transparent;
+}
+
+.card .card-body .btn {
+  color: #007CC7;
+  border-color: #007CC7;
+  background-color: transparent;
+  border-width: 1px !important;
+}
+
+.card .card-body .btn:hover {
+  color: #EEFBFB;
+  background-color: #007CC7;
+}
+
+.card .card-body .list-group-item {
+  border: 1px solid #12232E;
+}
+
+@media screen and (max-width: 520px) {
+  .card .card-header .course-name {
+    text-align: center;
+    word-break: break-all;
+  }
+}
+/*# sourceMappingURL=grade_user.css.map */

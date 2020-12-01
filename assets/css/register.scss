@@ -1,0 +1,22 @@
+@import 'function.scss';
+.form{
+    background-color:$primary-color;
+    color: $font-color;
+    border-radius: 50px;
+    fieldset{
+        border-width: 2px;
+        border-style: dashed;
+        border-color: $font-color;
+        border-radius: 50px;
+        .sub-title{
+            text-align: center;
+        }
+        .help-text{
+            margin: 0;
+            bottom: 0;
+        }
+        .btn{
+            border-width: 1px!important;
+        }
+    }
+}

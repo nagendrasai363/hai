@@ -1,0 +1,44 @@
+@import 'function.scss';
+@include button-border;
+.nav-pills{
+    .nav-link{
+        color: $secondary-color!important;
+        background: transparent!important;
+        border: 1px solid $secondary-color!important;
+    }
+    .nav-link:hover{
+        background-color: $secondary-color!important;
+        color: $font-color!important;
+    }
+    .active{
+        background-color: $secondary-color!important;
+        color: $font-color!important;
+    }
+}
+.tab-content{
+    .alert{
+        position: absolute;
+        top: 120px;
+        right: 50px;
+    }
+    .card{
+        .card-body{ 
+            @include button-colors;
+        }
+    }
+}
+@media screen and (max-width:520px){
+    .tab-content{
+        .alert{
+            position: absolute;
+            top: 80px;
+            right: 50px;
+        }
+
+        .card-body{
+            .input-group{
+                width: 110%;
+            }
+        }
+    }
+}

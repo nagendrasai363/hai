@@ -1,0 +1,9 @@
+@import 'function.scss';
+.card{
+    .card-header{
+        text-align: center!important;
+        .btn{
+            @include button-border;
+        }
+    }
+}

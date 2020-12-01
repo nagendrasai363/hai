@@ -1,0 +1,30 @@
+@import 'function.scss';
+.card{
+    .card-header{
+        background: transparent;
+        border: 1px solid $primary-color;
+        @include button-border;
+        @include button-colors;
+        .course-name{
+            color: $primary-color;
+        }
+    }
+    .card-body{
+        border: 1px solid $primary-color;
+        border-top: transparent;
+        @include button-colors;
+        .list-group-item{
+            border: 1px solid $primary-color;
+        }
+    }
+}
+@media screen and (max-width:520px){
+    .card{
+        .card-header{
+            .course-name{
+                text-align: center;
+                word-break: break-all;
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+#accordian .card .card-header {
+  background: transparent !important;
+  color: #12232E !important;
+  border: 1px solid #12232E;
+}
+
+#accordian .card .card-body {
+  background: transparent !important;
+  color: #12232E !important;
+  border: 1px solid #12232E;
+  border-top: transparent !important;
+}
+
+.btn {
+  border-width: 1px !important;
+}
+/*# sourceMappingURL=quizzes_user.css.map */

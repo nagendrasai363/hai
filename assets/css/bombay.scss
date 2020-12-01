@@ -1,0 +1,11 @@
+@import 'function.scss';
+*{
+    font-family: 'Work Sans', sans-serif;
+
+}
+.header{
+    color: $primary-color;
+}
+.navbar{
+    background-color:$primary-color!important;
+}
