@@ -36,6 +36,6 @@ services:
     volumes:
       - ./mysql:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: qwerty
       MYSQL_DATABASE: yaksh
     restart: always 
