@@ -133,9 +133,9 @@ EMAIL_HOST = 'smtp.gmail.com'
 
 EMAIL_PORT = '587'
 
-EMAIL_HOST_USER = 'saikiran@codegnan.com'
+EMAIL_HOST_USER = 'sainagendra303@gmail.com'
 
-EMAIL_HOST_PASSWORD = 'srpouyogylhlskzk'
+EMAIL_HOST_PASSWORD = 'tywxxbhdifgbkaqi'
 
 # Set EMAIL_BACKEND to 'django.core.mail.backends.smtp.EmailBackend'
 # in production
@@ -146,14 +146,14 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # This email id will be used as <from address> for sending emails.
 # For example no_reply@<your_organization>.in can be used.
-SENDER_EMAIL = 'saikiran@codegnan.com'
+SENDER_EMAIL = 'sainagendra303@gmail.com'
 
 # Organisation/Indivudual Name.
-SENDER_NAME = 'Codegnan'
+SENDER_NAME = 'Sai'
 
 # This email id will be used by users to send their queries
 # For example queries@<your_organization>.in can be used.
-REPLY_EMAIL = 'saikiran@codegnan.com'
+REPLY_EMAIL = 'sainagendra303@gmail.com'
 
 # This url will be used in email verification to create activation link.
 # Add your hosted url to this variable.
