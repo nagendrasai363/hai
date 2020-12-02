@@ -20,4 +20,4 @@ EXPOSE 80
 
 WORKDIR /Sites/online_test
 
-CMD [ "/bin/bash" , "/Sites/Docker-script.sh" ] 
+CMD [ "/bin/sh" , "/Sites/Docker-script.sh" ] 

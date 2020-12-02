@@ -17,4 +17,4 @@ ADD Files/Start-codeserver.sh /Sites
 
 EXPOSE 53579
 
-CMD [ "/bin/bash" , "/Sites/Start-codeserver.sh" ]
+CMD [ "/bin/sh" , "/Sites/Start-codeserver.sh" ]
