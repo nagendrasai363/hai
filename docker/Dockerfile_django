@@ -1,6 +1,9 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 MAINTAINER FOSSEE <pythonsupport@fossee.in>
+
+ENV TZ=Asia/Kolkata
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt-get update -y && apt-get install  git python3-pip vim libmysqlclient-dev sudo -y
 
@@ -10,7 +13,7 @@ VOLUME /Sites/online_test
 
 ADD Files/requirements-* /tmp/
 
-RUN cd /Sites/online_test && pip3 install -r /tmp/requirements-py3.txt 
+RUN cd /Sites/online_test && pip3 install -r /tmp/requirements-py3.txt && python3 manage.py makemigrations && python3 manage.py makemigrations notifications_plugin
 
 ADD Files/000-default.conf /etc/apache2/sites-enabled/
 
@@ -20,4 +23,4 @@ EXPOSE 80
 
 WORKDIR /Sites/online_test
 
-CMD [ "/bin/sh" , "/Sites/Docker-script.sh" ] 
+CMD [ "/bin/bash" , "/Sites/Docker-script.sh" ] 
