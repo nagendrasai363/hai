@@ -1,6 +1,9 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 MAINTAINER FOSSEE <pythonsupport@fossee.in>
+ENV TZ=Asia/Kolkata
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 
 RUN apt-get update && \
 apt-get install git python3-pip libmysqlclient-dev sudo default-jre default-jdk -y 
@@ -17,4 +20,4 @@ ADD Files/Start-codeserver.sh /Sites
 
 EXPOSE 53579
 
-CMD [ "/bin/sh" , "/Sites/Start-codeserver.sh" ]
+CMD [ "/bin/bash" , "/Sites/Start-codeserver.sh" ]
