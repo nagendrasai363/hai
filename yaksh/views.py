@@ -571,7 +571,7 @@ def start(request, questionpaper_id=None, attempt_num=None, course_id=None,
 
     # is user enrolled in the course
     if not course.is_enrolled(user):
-        msg = 'You are not enrolled in {0} contest'.format(course.name)
+        msg = 'You are not joined in {0} contest'.format(course.name)
         if is_moderator(user) and course.is_trial:
             return prof_manage(request, msg=msg)
         return quizlist_user(request, msg=msg)
@@ -1183,7 +1183,7 @@ def enroll_user(request, course_id, user_id=None, was_rejected=False):
     course = get_object_or_404(Course, id=course_id)
     if not course.is_active_enrollment():
         msg = (
-            'Enrollment for this contest has been closed,'
+            'Joining for this contest has been closed,'
             ' please contact your '
             'instructor/administrator.'
         )
@@ -1207,7 +1207,7 @@ def reject_user(request, course_id, user_id=None, was_enrolled=False):
         raise Http404('You are not allowed to view this page')
     course = get_object_or_404(Course, id=course_id)
     if not course.is_creator(user) and not course.is_teacher(user):
-        raise Http404('This course does not belong to you')
+        raise Http404('This contest does not belong to you')
     user = User.objects.get(id=user_id)
     course.reject(was_enrolled, user)
     messages.success(request, "Rejected members successfully")
@@ -2639,7 +2639,7 @@ def duplicate_course(request, course_id):
         msg = dedent(
             '''\
             You do not have permissions to clone {0} contest, please contact
-            your instructor/administrator.'''.format(course.name)
+            your administrator.'''.format(course.name)
         )
         messages.warning(request, msg)
     return my_redirect(reverse('yaksh:courses'))
@@ -3040,7 +3040,7 @@ def view_module(request, module_id, course_id, msg=None):
     user = request.user
     course = Course.objects.get(id=course_id)
     if user not in course.students.all():
-        raise Http404('You are not enrolled for this contest!')
+        raise Http404('You are not joined for this contest!')
     context = {}
     if not course.active or not course.is_active_enrollment():
         msg = "{0} is either expired or not active".format(course.name)
@@ -3083,7 +3083,7 @@ def course_modules(request, course_id, msg=None):
     user = request.user
     course = Course.objects.get(id=course_id)
     if user not in course.students.all():
-        msg = 'You are not enrolled for this course!'
+        msg = 'You are not joined for this course!'
         return quizlist_user(request, msg=msg)
 
     if not course.active or not course.is_active_enrollment():
@@ -3369,7 +3369,7 @@ def course_forum(request, course_id):
     course_ct = ContentType.objects.get_for_model(course)
     if (not course.is_creator(user) and not course.is_teacher(user)
             and not course.is_student(user)):
-        raise Http404('You are not enrolled in {0} contest'.format(course.name))
+        raise Http404('You are not joined in {0} contest'.format(course.name))
     search_term = request.GET.get('search_post')
     if search_term:
         posts = Post.objects.filter(
@@ -3421,7 +3421,7 @@ def post_comments(request, course_id, uuid):
     course = get_object_or_404(Course, id=course_id)
     if (not course.is_creator(user) and not course.is_teacher(user)
             and not course.is_student(user)):
-        raise Http404('You are not enrolled in {0} contest'.format(course.name))
+        raise Http404('You are not joined in {0} contest'.format(course.name))
     form = CommentForm()
     if request.method == "POST":
         form = CommentForm(request.POST, request.FILES)
@@ -3559,7 +3559,7 @@ def allow_special_attempt(request, user_id, course_id, quiz_id):
     student = get_object_or_404(User, pk=user_id)
 
     if not course.is_enrolled(student):
-        raise Http404('The member is not enrolled for this contest')
+        raise Http404('The member is not joined for this contest')
 
     micromanager, created = MicroManager.objects.get_or_create(
         course=course, student=student, quiz=quiz

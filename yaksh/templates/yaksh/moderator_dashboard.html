@@ -20,10 +20,6 @@
             <span class=" fa fa-plus-circle"></span>&nbsp;
             Add Contest
         </a>
-        <a href="{% url 'yaksh:create_demo_course' %}" class="btn createcontest-btn">
-            <span class=" fa fa-plus-circle"></span>&nbsp;
-            Create Demo Contest
-        </a>
         <br><br> 
         {% if messages %}
             {% for message in messages %}
@@ -40,7 +36,7 @@
     <br>
     {% if not courses %}
         <div class="alert alert-info">
-          No Contests found. Add a new contest or Create demo course
+          No Contests found. Add a new contest
         </div>
     {% else %}
         {% include "yaksh/paginator.html" %}
