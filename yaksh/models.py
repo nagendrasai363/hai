@@ -278,8 +278,8 @@ class CourseManager(models.Manager):
         trial_course.enroll(False, user)
         return trial_course
 
-    def get_hidden_courses(self, code):
-        return self.filter(code=code, hidden=True)
+    def get_hidden_courses(self, name):
+        return self.filter(name=name, hidden=False)
 
 
 #############################################################################

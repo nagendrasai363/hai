@@ -177,39 +177,53 @@ def quizlist_user(request, enrolled=None, msg=None):
     courses_data = []
 
     if request.method == "POST":
-        course_code = request.POST.get('course_code')
-        hidden_courses = Course.objects.get_hidden_courses(code=course_code)
+        course_name = request.POST.get('course_name')
+        hidden_courses = Course.objects.filter(name__contains = course_name)
         courses = hidden_courses
+        
         title = 'Search Results'
+        for course in courses:
+            _percent = None
+            courses_data.append(
+                {
+                    'data': course,
+                    'completion_percentage': _percent,
+                }
+            )
+        messages.info(request, msg)
+        context = {
+            'user': user, 'courses': courses_data,
+            'title': title
+            }
+
     else:
         enrolled_courses = user.students.filter(is_trial=False).order_by('-id')
         remaining_courses = list(Course.objects.filter(
-            active=True, is_trial=False, hidden=False
-        ).exclude(
+            active=True, is_trial=False
+            ).exclude(
             id__in=enrolled_courses.values_list("id", flat=True)
             ).order_by('-id'))
         courses = list(enrolled_courses)
         courses.extend(remaining_courses)
         title = 'All Contests'
-
-    for course in courses:
-        if course.students.filter(id=user.id).exists():
-            _percent = course.get_completion_percent(user)
-        else:
-            _percent = None
-        courses_data.append(
-            {
-                'data': course,
-                'completion_percentage': _percent,
+        
+        for course in courses:
+            if course.students.filter(id=user.id).exists():
+                _percent = course.get_completion_percent(user)
+            else:
+                _percent = None
+                courses_data.append(
+                    {
+                        'data': course,
+                        'completion_percentage': _percent,
+                    }
+                )
+        
+        messages.info(request, msg)
+        context = {
+            'user': user, 'courses': courses_data,
+            'title': title
             }
-        )
-
-    messages.info(request, msg)
-    context = {
-        'user': user, 'courses': courses_data,
-        'title': title
-    }
-
     return my_render_to_response(request, "yaksh/quizzes_user.html", context)
 
 
