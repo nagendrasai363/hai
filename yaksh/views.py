@@ -208,9 +208,15 @@ def quizlist_user(request, enrolled=None, msg=None):
         title = 'All Contests'
         
         for course in courses:
-            #if course.students.filter(id=user.id).exists():
-            #    _percent = course.get_completion_percent(user)
-            #else:
+            if course.students.filter(id=user.id).exists():
+                _percent = course.get_completion_percent(user)
+                courses_data.append(
+                    {
+                        'data': course,
+                        'completion_percentage': _percent,
+                    }
+                )
+            else:
                 _percent = None
                 courses_data.append(
                     {
