@@ -13,7 +13,7 @@ VOLUME /Sites/online_test
 
 ADD Files/requirements-* /tmp/
 
-RUN cd /Sites/online_test && pip3 install -r /tmp/requirements-py3.txt && python3 manage.py makemigrations && python3 manage.py makemigrations notifications_plugin
+RUN cd /Sites/online_test && pip3 install -r /tmp/requirements-py3.txt
 
 ADD Files/000-default.conf /etc/apache2/sites-enabled/
 
