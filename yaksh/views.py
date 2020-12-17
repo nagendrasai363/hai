@@ -802,8 +802,10 @@ def skip(request, q_id, next_q=None, attempt_num=None, questionpaper_id=None,
 @email_verified
 def check(request, q_id, attempt_num=None, questionpaper_id=None,
           course_id=None, module_id=None):
+    print("I am in check")
     """Checks the answers of the user for particular question"""
     user = request.user
+    print('Hai user', user)
     paper = get_object_or_404(
         AnswerPaper,
         user=request.user,
@@ -923,6 +925,7 @@ def check(request, q_id, attempt_num=None, questionpaper_id=None,
         if current_question.type in ['code', 'upload']:
             if (paper.time_left() <= 0 and not
                     paper.question_paper.quiz.is_exercise):
+                print("i am in get_result")
                 url = '{0}:{1}'.format(SERVER_HOST_NAME, SERVER_POOL_PORT)
                 result_details = get_result_from_code_server(url, uid,
                                                              block=True)
@@ -934,6 +937,7 @@ def check(request, q_id, attempt_num=None, questionpaper_id=None,
                                      module_id=module_id,
                                      previous_question=current_question)
             else:
+                print('i m in else')
                 return JsonResponse(result)
         else:
             next_question, error_message, paper = _update_paper(

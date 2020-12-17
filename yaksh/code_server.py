@@ -137,6 +137,7 @@ class ServerPool(object):
         return qs, alive, n_running
 
     def submit(self, uid, json_data, user_dir):
+        print("i m in codeserver submit")
         self.results[uid] = dict(status='not started')
         self.job_queue.put((uid, json_data, user_dir))
 
@@ -189,6 +190,7 @@ class MainHandler(RequestHandler):
 
 
 def submit(url, uid, json_data, user_dir):
+    print("in codeserver submit")
     '''Submit a job to the code server.
 
     Parameters

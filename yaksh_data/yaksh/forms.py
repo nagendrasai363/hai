@@ -527,10 +527,10 @@ class LearningModuleForm(forms.ModelForm):
         super(LearningModuleForm, self).__init__(*args, **kwargs)
         self.fields['name'].widget.attrs['size'] = 30
         self.fields['name'].widget.attrs.update(
-            {'class': form_input_class, 'placeholder': 'Module Name'}
+            {'class': form_input_class, 'placeholder': 'Category Name'}
         )
         self.fields['description'].widget.attrs.update(
-            {'class': form_input_class, 'placeholder': 'Module Description'}
+            {'class': form_input_class, 'placeholder': 'Category Description'}
         )
 
     class Meta:

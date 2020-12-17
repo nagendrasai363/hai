@@ -60,6 +60,7 @@ languages = (
         ("java", "Java Language"),
         ("scilab", "Scilab"),
         ("r", "R"),
+        ("go", "Go"),
         ("other", "Other")
     )
 
@@ -278,8 +279,8 @@ class CourseManager(models.Manager):
         trial_course.enroll(False, user)
         return trial_course
 
-    def get_hidden_courses(self, code):
-        return self.filter(code=code, hidden=True)
+    def get_hidden_courses(self, name):
+        return self.filter(name=name, hidden=False)
 
 
 #############################################################################
@@ -409,13 +410,13 @@ class Quiz(models.Model):
 
     is_trial = models.BooleanField(default=False)
 
-    instructions = models.TextField('Instructions for Students',
+    instructions = models.TextField('Instructions for Members',
                                     default=None, blank=True, null=True)
 
-    view_answerpaper = models.BooleanField('Allow student to view their answer\
+    view_answerpaper = models.BooleanField('Allow member to view their answer\
                                             paper', default=False)
 
-    allow_skip = models.BooleanField("Allow students to skip questions",
+    allow_skip = models.BooleanField("Allow members to skip questions",
                                      default=True)
 
     weightage = models.FloatField(help_text='Will be considered as percentage',
@@ -827,14 +828,14 @@ class Course(models.Model):
 
     # The start date of the course enrollment.
     start_enroll_time = models.DateTimeField(
-        "Start Date and Time for enrollment of course",
+        "Start Date and Time for enrollment of contest",
         default=timezone.now,
         null=True
     )
 
     # The end date and time of the course enrollment
     end_enroll_time = models.DateTimeField(
-        "End Date and Time for enrollment of course",
+        "End Date and Time for enrollment of contest",
         default=datetime(
             2199, 1, 1,
             tzinfo=pytz.timezone(timezone.get_current_timezone_name())
@@ -1312,6 +1313,11 @@ class Question(models.Model):
         ],
         "scilab": [
             ("standardtestcase", "Standard TestCase"),
+            ("hooktestcase", "Hook TestCase")
+        ],
+        "go": [
+            ("standardtestcase", "Standard TestCase"),
+            ("stdiobasedtestcase", "StdIO TestCase"),
             ("hooktestcase", "Hook TestCase")
         ]
     }
@@ -2343,6 +2349,7 @@ class AnswerPaper(models.Model):
 
     def validate_answer(self, user_answer, question, json_data=None, uid=None,
                         server_port=SERVER_POOL_PORT):
+        print("i m in validate_answer")
         """
             Checks whether the answer submitted by the user is right or wrong.
             If right then returns correct = True, success and
@@ -2412,6 +2419,7 @@ class AnswerPaper(models.Model):
                     result['error'] = ['Correct answer']
 
             elif question.type == 'code' or question.type == "upload":
+                print("i m in code type")
                 user_dir = self.user.profile.get_user_dir()
                 url = '{0}:{1}'.format(SERVER_HOST_NAME, server_port)
                 submit(url, uid, json_data, user_dir)

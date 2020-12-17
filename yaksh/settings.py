@@ -59,4 +59,10 @@ code_evaluators = {
         "standardtestcase": "yaksh.r_code_evaluator.RCodeEvaluator",
         "hooktestcase": "yaksh.hook_evaluator.HookEvaluator"
         },
+    "go": {
+        "standardtestcase": "yaksh.go_code_evaluator.GoCodeEvaluator",
+        "stdiobasedtestcase":
+             "yaksh.go_stdio_evaluator.GoStdIOEvaluator",
+        "hooktestcase": "yaksh.hook_evaluator.HookEvaluator"
+        },
 }

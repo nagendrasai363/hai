@@ -60,6 +60,7 @@ languages = (
         ("java", "Java Language"),
         ("scilab", "Scilab"),
         ("r", "R"),
+        ("go", "Go"),
         ("other", "Other")
     )
 
@@ -1313,6 +1314,11 @@ class Question(models.Model):
         "scilab": [
             ("standardtestcase", "Standard TestCase"),
             ("hooktestcase", "Hook TestCase")
+        ],
+        "go": [
+            ("standardtestcase", "Standard TestCase"),
+            ("stdiobasedtestcase", "StdIO TestCase"),
+            ("hooktestcase", "Hook TestCase")
         ]
     }
 
@@ -2343,6 +2349,7 @@ class AnswerPaper(models.Model):
 
     def validate_answer(self, user_answer, question, json_data=None, uid=None,
                         server_port=SERVER_POOL_PORT):
+        print("i m in validate_answer")
         """
             Checks whether the answer submitted by the user is right or wrong.
             If right then returns correct = True, success and
@@ -2412,6 +2419,7 @@ class AnswerPaper(models.Model):
                     result['error'] = ['Correct answer']
 
             elif question.type == 'code' or question.type == "upload":
+                print("i m in code type")
                 user_dir = self.user.profile.get_user_dir()
                 url = '{0}:{1}'.format(SERVER_HOST_NAME, server_port)
                 submit(url, uid, json_data, user_dir)
